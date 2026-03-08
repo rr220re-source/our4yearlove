@@ -16,7 +16,6 @@ color:#333;
 text-align:center;
 overflow-x:hidden;
 
-/* FADED COUPLE BACKGROUND */
 background:
 linear-gradient(rgba(255,255,255,0.85), rgba(255,245,247,0.9)),
 url('background.jpg');
@@ -26,15 +25,12 @@ background-position:center;
 background-attachment:fixed;
 }
 
-/* NIGHT SKY */
-
 .stars{
 position:fixed;
 width:100%;
 height:100%;
 top:0;
 left:0;
-background:transparent;
 pointer-events:none;
 }
 
@@ -50,8 +46,6 @@ animation:twinkle 2s infinite alternate;
 from{opacity:0.2}
 to{opacity:1}
 }
-
-/* HERO */
 
 .hero{
 height:100vh;
@@ -92,8 +86,6 @@ cursor:pointer;
 box-shadow:0 8px 18px rgba(0,0,0,0.15);
 }
 
-/* SECTION */
-
 .section{
 max-width:1000px;
 margin:auto;
@@ -106,8 +98,6 @@ font-size:38px;
 margin-bottom:20px;
 }
 
-/* LOVE QUOTE */
-
 .quote{
 font-size:22px;
 font-style:italic;
@@ -115,8 +105,6 @@ margin:80px auto;
 max-width:700px;
 color:#555;
 }
-
-/* TIMELINE */
 
 .timeline{
 text-align:left;
@@ -132,11 +120,9 @@ border-radius:10px;
 box-shadow:0 6px 16px rgba(0,0,0,0.08);
 }
 
-/* POLAROID MEMORY WALL */
-
 .gallery{
 display:grid;
-grid-template-columns:1fr; /* one photo per row */
+grid-template-columns:1fr;
 max-width:800px;
 margin:40px auto;
 gap:50px;
@@ -151,14 +137,6 @@ box-shadow:0 18px 35px rgba(0,0,0,0.18);
 transform:rotate(-2deg);
 transition:0.4s;
 max-width:700px;
-max-width:420px;
-
-background:white;
-padding:12px 12px 40px 12px;
-border-radius:6px;
-box-shadow:0 15px 30px rgba(0,0,0,0.15);
-transform:rotate(-2deg);
-transition:0.4s;
 }
 
 .polaroid img{
@@ -172,8 +150,6 @@ border-radius:4px;
 transform:rotate(0deg) scale(1.05);
 }
 
-/* SLIDESHOW */
-
 .slideshow{
 max-width:800px;
 margin:60px auto;
@@ -184,8 +160,6 @@ width:100%;
 border-radius:12px;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
-
-/* LOVE LETTER */
 
 .letter-section{
 background:linear-gradient(180deg,#fff5f7,#ffffff);
@@ -203,16 +177,12 @@ border-radius:14px;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* SECRET MESSAGE */
-
 .secret{
 display:none;
 margin-top:30px;
 font-size:20px;
 color:#c79b63;
 }
-
-/* HEARTS */
 
 .heart{
 position:fixed;
@@ -243,23 +213,15 @@ font-size:14px;
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- START EXPERIENCE OVERLAY -->
-<div id="startOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2000;font-family:Poppins, sans-serif;">
+<!-- START SCREEN -->
+<div id="startOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2000;">
 
 <h2 style="font-family:'Playfair Display',serif;margin-bottom:20px;">Tap to Begin Our Story ❤️</h2>
-<p style="max-width:300px;text-align:center;margin-bottom:30px;">I made something special for us. Turn the music on and scroll through our memories.</p>
 
-<button id="startMusicBtn" onclick="startExperience()" style="padding:14px 28px;border:none;border-radius:30px;background:#c79b63;color:white;font-size:16px;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,0.25);">
+<button onclick="startExperience()">
 🎵 Start With Our Song
 </button>
 
-</div>
-
-<!-- MOBILE PLAY BUTTON -->
-<div id="musicStart" style="position:fixed;bottom:30px;right:30px;z-index:999;">
-<button onclick="startMusic()" style="padding:12px 20px;border:none;border-radius:30px;background:#c79b63;color:white;font-size:14px;box-shadow:0 8px 18px rgba(0,0,0,0.25);">
-🎵 Play Our Song
-</button>
 </div>
 
 <section class="hero">
@@ -271,8 +233,6 @@ font-size:14px;
 <div>March 9, 2026</div>
 
 <div class="countdown" id="countdown"></div>
-
-
 
 <button onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">
 Our Journey ↓
@@ -292,27 +252,27 @@ Our Journey ↓
 
 <div>
 <b>The Beginning</b><br>
-The moment our paths crossed quietly changed my life. What started as simple conversations slowly became the most meaningful connection I have ever had.
+The moment our paths crossed quietly changed my life.
 </div>
 
 <div>
 <b>Getting Closer</b><br>
-Day by day, message by message, we grew closer. You became the person I wanted to share everything with — my thoughts, my happiness, and even my worries.
+Day by day, we grew closer and our bond became stronger.
 </div>
 
 <div>
 <b>Our Memories</b><br>
-Every laugh, every long conversation, every moment we spent together slowly built something beautiful between us.
+Every laugh and conversation slowly built something beautiful.
 </div>
 
 <div>
 <b>Growing Together</b><br>
-Over these years we didn’t just create memories — we grew together, supported each other, and became stronger as partners.
+We supported each other and grew stronger together.
 </div>
 
 <div>
 <b>4 Beautiful Years</b><br>
-Today we celebrate four wonderful years of love, memories, and companionship. And I know our best moments are still ahead of us.
+Today we celebrate four wonderful years of love.
 </div>
 
 </div>
@@ -344,16 +304,6 @@ Today we celebrate four wonderful years of love, memories, and companionship. An
 
 </section>
 
-<div class="quote">
-"If I had to choose again, I would still choose you — every single time."
-</div>
-
-<section class="slideshow">
-
-<img id="slide" src="photo1.jpg">
-
-</section>
-
 <section class="letter-section">
 
 <h2>My Letter To You</h2>
@@ -364,23 +314,35 @@ Deepika,
 
 <br><br>
 
-If someone had told me years ago that one person could bring so much happiness and peace into my life, I probably wouldn’t have believed them. But then you came into my life, and everything slowly began to change.
+If someone had told me years ago that one person could bring so much happiness, peace, and meaning into my life, I probably wouldn't have believed it. But then you came into my life, and everything slowly started to make sense.
 
 <br><br>
 
-These four years have been filled with moments that I will carry with me forever — the laughter we shared, the conversations that lasted for hours, and the comfort of simply knowing that you are there.
+Over the past four years, we have shared so many memories together — moments of laughter, deep conversations, small adventures, and even the quiet moments where we simply enjoyed being around each other. Every one of those moments has become something I treasure deeply.
 
 <br><br>
 
-You have this incredible ability to make my world brighter just by being yourself. Your smile, your kindness, and the way you care about the people around you are just a few of the many reasons why I admire you so much.
+You have this beautiful way of making ordinary days feel special. Your smile can brighten my worst days, your voice brings me comfort, and your presence gives me a sense of home that I never knew I needed until I met you.
 
 <br><br>
 
-I am grateful for every moment we have shared and excited for every memory we will create in the future.
+What I love most about us is how natural everything feels. We can talk about anything, laugh about the smallest things, and support each other through whatever life throws at us. That kind of connection is rare, and I’m grateful for it every single day.
 
 <br><br>
 
-Happy 4th Anniversary, my love.
+These four years are not just about time passing — they are about the countless little moments that built our story. And when I think about the future, I feel excited knowing that there are so many more memories waiting for us.
+
+<br><br>
+
+Thank you for being patient with me, for believing in us, and for filling my life with so much love and warmth.
+
+<br><br>
+
+Happy 4th Anniversary, my love. Here’s to our memories, our journey, and all the beautiful chapters that are still ahead of us.
+
+<br><br>
+
+With all my love,
 
 <br><br>
 
@@ -392,6 +354,8 @@ Happy 4th Anniversary, my love.
 
 <div class="secret" id="secret">
 No matter where you are or how far apart we may be, my heart will always find its way back to you. ❤️
+</div>
+
 </div>
 
 </div>
@@ -426,64 +390,21 @@ if(distance>0){
 
 },1000);
 
-function createHeart(){
-const heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="❤";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+10)+"px";
-heart.style.animationDuration=(Math.random()*3+3)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{heart.remove();},6000);
-}
-
-setInterval(createHeart,500);
-
-/* STARS */
-
-for(let i=0;i<120;i++){
-const star=document.createElement("div");
-star.className="star";
-star.style.left=Math.random()*100+"vw";
-star.style.top=Math.random()*100+"vh";
-document.getElementById("stars").appendChild(star);
-}
-
-/* SLIDESHOW */
-
-const images=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg","photo8.jpg","photo9.jpg","photo10.jpg"];
-let i=0;
-setInterval(()=>{
-i=(i+1)%images.length;
-document.getElementById("slide").src=images[i];
-},3000);
-
 function showSecret(){
 document.getElementById("secret").style.display="block";
 }
 
-// try to autoplay and then unmute
 function startExperience(){
  const music = document.getElementById('bgMusic');
  const overlay = document.getElementById('startOverlay');
 
  if(music){
-   music.muted = false;
-   music.play().catch(()=>{});
+  music.currentTime = 0;
+  music.play();
  }
 
- if(overlay){
-   overlay.style.opacity = '0';
-   setTimeout(()=>{
-     overlay.style.display = 'none';
-   },500);
- }
+ overlay.style.display = 'none';
 }
-   });
- }
-});
 
 </script>
 
