@@ -15,36 +15,12 @@ font-family:Poppins, sans-serif;
 color:#333;
 text-align:center;
 overflow-x:hidden;
-
 background:
 linear-gradient(rgba(255,255,255,0.85), rgba(255,245,247,0.9)),
 url('background.jpg');
-
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
-}
-
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-}
-
-.star{
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-animation:twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle{
-from{opacity:0.2}
-to{opacity:1}
 }
 
 .hero{
@@ -124,12 +100,20 @@ background:#c79b63;
 }
 
 .timeline-item{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
 position:relative;
 margin-bottom:35px;
 background:white;
 padding:18px 20px;
 border-radius:10px;
 box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.timeline-item.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .timeline-item::before{
@@ -143,15 +127,6 @@ border-radius:50%;
 background:#c79b63;
 }
 
-.timeline div{
-padding:20px;
-border-left:3px solid #c79b63;
-margin-bottom:25px;
-background:white;
-border-radius:10px;
-box-shadow:0 6px 16px rgba(0,0,0,0.08);
-}
-
 .gallery{
 display:grid;
 grid-template-columns:1fr;
@@ -162,13 +137,19 @@ justify-items:center;
 }
 
 .polaroid{
+opacity:0;
+transform:translateY(40px) rotate(-2deg);
+transition:all 0.8s ease;
 background:white;
 padding:18px 18px 70px 18px;
 border-radius:6px;
 box-shadow:0 18px 35px rgba(0,0,0,0.18);
-transform:rotate(-2deg);
-transition:0.4s;
 max-width:700px;
+}
+
+.polaroid.show{
+opacity:1;
+transform:translateY(0) rotate(-2deg);
 }
 
 .polaroid img{
@@ -176,21 +157,6 @@ width:100%;
 height:360px;
 object-fit:cover;
 border-radius:4px;
-}
-
-.polaroid:hover{
-transform:rotate(0deg) scale(1.05);
-}
-
-.slideshow{
-max-width:800px;
-margin:60px auto;
-}
-
-.slideshow img{
-width:100%;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 .letter-section{
@@ -216,22 +182,62 @@ font-size:20px;
 color:#c79b63;
 }
 
-.heart{
-position:fixed;
-top:-10px;
-color:#ff6b81;
-animation:fall linear forwards;
-}
-
-@keyframes fall{
-0%{transform:translateY(-10vh);} 
-100%{transform:translateY(110vh);} 
-}
-
 footer{
 padding:40px;
 background:#fafafa;
 font-size:14px;
+}
+
+/* CINEMATIC INTRO */
+
+#cinematicIntro{
+margin-top:60px;
+margin-bottom:80px;
+animation:fadeIn 3s ease forwards;
+}
+
+.glowTitle{
+font-size:52px;
+letter-spacing:4px;
+color:white;
+text-shadow:0 0 10px #ff4d6d,0 0 20px #ff4d6d,0 0 40px #ff4d6d;
+animation:glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle{
+font-size:24px;
+margin-top:10px;
+opacity:0.9;
+}
+
+.tagline{
+margin-top:25px;
+font-size:20px;
+opacity:0.85;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px #ff4d6d,0 0 20px #ff4d6d; }
+to{ text-shadow:0 0 20px #ff4d6d,0 0 40px #ff4d6d; }
+}
+
+@keyframes fadeIn{
+0%{ opacity:0; transform:translateY(40px);} 
+100%{ opacity:1; transform:translateY(0);} 
+}
+
+.sparkle{
+position:absolute;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+animation:sparkleAnim 3s linear infinite;
+}
+
+@keyframes sparkleAnim{
+0%{ transform:translateY(0); opacity:1; }
+100%{ transform:translateY(-100vh); opacity:0; }
 }
 
 </style>
@@ -239,99 +245,68 @@ font-size:14px;
 
 <body>
 
-<div class="stars" id="stars"></div>
-
 <audio id="bgMusic" loop playsinline>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- START SCREEN -->
+<!-- START OVERLAY -->
 <div id="startOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2000;">
 
 <h2 style="font-family:'Playfair Display',serif;margin-bottom:20px;">Tap to Begin Our Story ❤️</h2>
 
-<button onclick="startExperience()">
-🎵 Start With Our Song
-</button>
+<button id="startBtn">🎵 Start With Our Song</button>
 
+</div>
+
+<!-- CINEMATIC INTRO -->
+<div id="cinematicIntro">
+<h1 class="glowTitle">Ronald ❤️ Deepika</h1>
+<p class="subtitle">A Love Story Since 2022</p>
+<p class="tagline" id="typeTagline"></p>
 </div>
 
 <section class="hero">
-
 <h1>Our 4 Year Love Story</h1>
-
 <div class="names">Ronald ❤️ Deepika</div>
-
 <div>March 9, 2026</div>
-
 <div class="countdown" id="countdown"></div>
-
-<button onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">
-Our Journey ↓
-</button>
-
+<button onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Our Journey ↓</button>
 </section>
 
-<div class="quote">
-"Some love stories are written in the stars. Ours is written in every moment we’ve shared."
-</div>
+<div class="quote">"Some love stories are written in the stars. Ours is written in every moment we’ve shared."</div>
 
 <section class="section" id="journey">
-
 <h2>Our Journey</h2>
 
 <div class="timeline">
-
 <div class="timeline-item"><b>Feb 24, 2022 — Saw You 👀</b><br>The day I first noticed you and our story quietly began.</div>
-
-<div class="timeline-item"><b>Feb 25, 2022 — First Talk 💬</b><br>The first real conversation that started everything.</div>
-
-<div class="timeline-item"><b>Feb 25, 2022 — First Text 📱</b><br>Messages that slowly became a daily habit.</div>
-
-<div class="timeline-item"><b>March 4, 2022 — First Call 📞</b><br>Hearing your voice made everything feel more real.</div>
-
-<div class="timeline-item"><b>March 5, 2022 — Proposed 💍</b><br>The day I asked you to be mine.</div>
-
-<div class="timeline-item"><b>March 9, 2022 — You Said Yes ❤️</b><br>The moment our relationship officially began.</div>
-
-<div class="timeline-item"><b>March 9, 2022 — Held Hands 🤝</b><br>A small moment that meant everything.</div>
-
-<div class="timeline-item"><b>March 11, 2022 — First Picture 📸</b><br>A memory frozen forever.</div>
-
-<div class="timeline-item"><b>March 11, 2022 — First Kiss 💋</b><br>A moment we will never forget.</div>
-
-<div class="timeline-item"><b>March 15, 2022 — Home Visit 🏠</b><br>A step closer into each other's lives.</div>
-
-<div class="timeline-item"><b>March 16, 2022 — First Gift 🎁</b><br>The watch that still reminds me of you.</div>
-
-<div class="timeline-item"><b>April 2, 2022 — First Date 🍔</b><br>Burger King at Mantri Mall — simple but unforgettable.</div>
-
-<div class="timeline-item"><b>April 8, 2022 — Breakup 💔</b><br>A difficult day that tested our love.</div>
-
-<div class="timeline-item"><b>April 24, 2022 — Party Night 🎉</b><br>Another memory added to our story.</div>
-
-<div class="timeline-item"><b>May 6, 2022 — Patch Up 🤍</b><br>Proof that love is stronger than misunderstandings.</div>
-
-<div class="timeline-item"><b>May 28, 2022 — Movie Together 🎬</b><br>Another simple moment turned special.</div>
-
-<div class="timeline-item"><b>July 30, 2022 — Temple Visit 🛕</b><br>Praying for our journey together.</div>
-
-<div class="timeline-item"><b>Oct 25, 2022 — Church Visit ⛪</b><br>Another blessing for our love.</div>
-
+<div class="timeline-item"><b>Feb 25, 2022 — First Talk 💬</b></div>
+<div class="timeline-item"><b>Feb 25, 2022 — First Text 📱</b></div>
+<div class="timeline-item"><b>March 4, 2022 — First Call 📞</b></div>
+<div class="timeline-item"><b>March 5, 2022 — Proposed 💍</b></div>
+<div class="timeline-item"><b>March 9, 2022 — You Said Yes ❤️</b></div>
+<div class="timeline-item"><b>March 9, 2022 — Held Hands 🤝</b></div>
+<div class="timeline-item"><b>March 11, 2022 — First Picture 📸</b></div>
+<div class="timeline-item"><b>March 11, 2022 — First Kiss 💋</b></div>
+<div class="timeline-item"><b>March 15, 2022 — Home Visit 🏠</b></div>
+<div class="timeline-item"><b>March 16, 2022 — First Gift 🎁</b></div>
+<div class="timeline-item"><b>April 2, 2022 — First Date 🍔</b></div>
+<div class="timeline-item"><b>April 8, 2022 — Breakup 💔</b></div>
+<div class="timeline-item"><b>April 24, 2022 — Party Night 🎉</b></div>
+<div class="timeline-item"><b>May 6, 2022 — Patch Up 🤍</b></div>
+<div class="timeline-item"><b>May 28, 2022 — Movie Together 🎬</b></div>
+<div class="timeline-item"><b>July 30, 2022 — Temple Visit 🛕</b></div>
+<div class="timeline-item"><b>Oct 25, 2022 — Church Visit ⛪</b></div>
 </div>
 
 </section>
 
-<div class="quote">
-"Every memory with you is my favorite memory."
-</div>
+<div class="quote">"Every memory with you is my favorite memory."</div>
 
 <section class="section">
-
 <h2>Our Memories</h2>
 
 <div class="gallery">
-
 <div class="polaroid"><img src="photo1.jpg"></div>
 <div class="polaroid"><img src="photo2.jpg"></div>
 <div class="polaroid"><img src="photo3.jpg"></div>
@@ -342,13 +317,10 @@ Our Journey ↓
 <div class="polaroid"><img src="photo8.jpg"></div>
 <div class="polaroid"><img src="photo9.jpg"></div>
 <div class="polaroid"><img src="photo10.jpg"></div>
-
 </div>
-
 </section>
 
 <section class="letter-section">
-
 <h2>My Letter To You</h2>
 
 <div class="love-letter">
@@ -361,31 +333,15 @@ If someone had told me years ago that one person could bring so much happiness, 
 
 <br><br>
 
-Over the past four years, we have shared so many memories together — moments of laughter, deep conversations, small adventures, and even the quiet moments where we simply enjoyed being around each other. Every one of those moments has become something I treasure deeply.
+Over the past four years, we have shared so many memories together — moments of laughter, deep conversations, small adventures, and even the quiet moments where we simply enjoyed being around each other.
 
 <br><br>
 
-You have this beautiful way of making ordinary days feel special. Your smile can brighten my worst days, your voice brings me comfort, and your presence gives me a sense of home that I never knew I needed until I met you.
+You have this beautiful way of making ordinary days feel special.
 
 <br><br>
 
-What I love most about us is how natural everything feels. We can talk about anything, laugh about the smallest things, and support each other through whatever life throws at us. That kind of connection is rare, and I’m grateful for it every single day.
-
-<br><br>
-
-These four years are not just about time passing — they are about the countless little moments that built our story. And when I think about the future, I feel excited knowing that there are so many more memories waiting for us.
-
-<br><br>
-
-Thank you for being patient with me, for believing in us, and for filling my life with so much love and warmth.
-
-<br><br>
-
-Happy 4th Anniversary, my love. Here’s to our memories, our journey, and all the beautiful chapters that are still ahead of us.
-
-<br><br>
-
-With all my love,
+Happy 4th Anniversary, my love ❤️
 
 <br><br>
 
@@ -395,26 +351,35 @@ With all my love,
 
 <button onclick="showSecret()">Open When You Miss Me 💌</button>
 
-<div class="secret" id="secret">
-No matter where you are or how far apart we may be, my heart will always find its way back to you. ❤️
-</div>
-
-</div>
+<div class="secret" id="secret">No matter where you are, my heart will always find its way back to you ❤️</div>
 
 </div>
 
 </section>
 
-<footer>
-Made with ❤️ by Ronald for Deepika
-</footer>
+<footer>Made with ❤️ by Ronald for Deepika</footer>
 
 <script>
 
+/* START BUTTON */
+
+document.getElementById("startBtn").addEventListener("click", function(){
+  const music = document.getElementById("bgMusic");
+  const overlay = document.getElementById("startOverlay");
+
+  music.play().catch(()=>{});
+  overlay.style.display = "none";
+});
+
+/* SECRET MESSAGE */
+function showSecret(){
+ document.getElementById("secret").style.display="block";
+}
+
+/* COUNTDOWN */
 const targetDate = new Date("March 9, 2026 00:00:00").getTime();
 
-setInterval(function(){
-
+setInterval(()=>{
 const now = new Date().getTime();
 const distance = targetDate - now;
 
@@ -426,28 +391,47 @@ const seconds = Math.floor((distance%(1000*60))/1000);
 const el=document.getElementById("countdown");
 
 if(distance>0){
- el.innerHTML = days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
+el.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
 }else{
- el.innerHTML = "Happy 4th Anniversary ❤️";
+el.innerHTML = "Happy 4th Anniversary ❤️";
 }
 
 },1000);
 
-function showSecret(){
-document.getElementById("secret").style.display="block";
-}
+/* TYPEWRITER */
+const text = "Two souls, one journey, countless memories ❤️";
+let index = 0;
 
-function startExperience(){
- const music = document.getElementById('bgMusic');
- const overlay = document.getElementById('startOverlay');
-
- if(music){
-  music.currentTime = 0;
-  music.play();
+function typeWriter(){
+ if(index < text.length){
+  document.getElementById("typeTagline").innerHTML += text.charAt(index);
+  index++;
+  setTimeout(typeWriter,60);
  }
-
- overlay.style.display = 'none';
 }
+
+typeWriter();
+
+/* SPARKLES */
+setInterval(()=>{
+const sparkle=document.createElement("div");
+sparkle.classList.add("sparkle");
+sparkle.style.left=Math.random()*100+"vw";
+sparkle.style.bottom="0";
+document.body.appendChild(sparkle);
+setTimeout(()=>sparkle.remove(),3000);
+},200);
+
+/* SCROLL REVEAL */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+ if(entry.isIntersecting){
+  entry.target.classList.add("show");
+ }
+});
+});
+
+document.querySelectorAll(".timeline-item, .polaroid").forEach(el=>observer.observe(el));
 
 </script>
 
