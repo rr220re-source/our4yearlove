@@ -239,9 +239,21 @@ font-size:14px;
 
 <div class="stars" id="stars"></div>
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop playsinline>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<!-- START EXPERIENCE OVERLAY -->
+<div id="startOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:2000;font-family:Poppins, sans-serif;">
+
+<h2 style="font-family:'Playfair Display',serif;margin-bottom:20px;">Tap to Begin Our Story ❤️</h2>
+<p style="max-width:300px;text-align:center;margin-bottom:30px;">I made something special for us. Turn the music on and scroll through our memories.</p>
+
+<button id="startMusicBtn" onclick="startExperience()" style="padding:14px 28px;border:none;border-radius:30px;background:#c79b63;color:white;font-size:16px;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,0.25);">
+🎵 Start With Our Song
+</button>
+
+</div>
 
 <!-- MOBILE PLAY BUTTON -->
 <div id="musicStart" style="position:fixed;bottom:30px;right:30px;z-index:999;">
@@ -453,10 +465,18 @@ document.getElementById("secret").style.display="block";
 }
 
 // try to autoplay and then unmute
-function startMusic(){
+function startExperience(){
  const music=document.getElementById('bgMusic');
- music.play();
- document.getElementById('musicStart').style.display='none';
+ music.play().catch(()=>{});
+ 
+ const overlay=document.getElementById('startOverlay');
+ overlay.style.opacity='0';
+ 
+ setTimeout(()=>{
+   overlay.style.display='none';
+ },500);
+});
+ document.getElementById('startOverlay').style.display='none';
 }
    });
  }
