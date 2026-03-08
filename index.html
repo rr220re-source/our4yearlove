@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ronald ❤️ Deepika | 4 Years of Love</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins, sans-serif;
+color:#333;
+text-align:center;
+overflow-x:hidden;
+
+/* FADED COUPLE BACKGROUND */
+background:
+linear-gradient(rgba(255,255,255,0.85), rgba(255,245,247,0.9)),
+url('background.jpg');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* NIGHT SKY */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:transparent;
+pointer-events:none;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:0.2}
+to{opacity:1}
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+background:linear-gradient(120deg,#ffffff,#ffeef3);
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:56px;
+margin-bottom:10px;
+}
+
+.names{
+font-size:30px;
+color:#c79b63;
+margin-bottom:10px;
+}
+
+.countdown{
+font-size:22px;
+margin-top:15px;
+}
+
+button{
+margin-top:20px;
+padding:14px 28px;
+border:none;
+border-radius:30px;
+background:#c79b63;
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* SECTION */
+
+.section{
+max-width:1000px;
+margin:auto;
+padding:80px 20px;
+}
+
+.section h2{
+font-family:'Playfair Display',serif;
+font-size:38px;
+margin-bottom:20px;
+}
+
+/* LOVE QUOTE */
+
+.quote{
+font-size:22px;
+font-style:italic;
+margin:80px auto;
+max-width:700px;
+color:#555;
+}
+
+/* TIMELINE */
+
+.timeline{
+text-align:left;
+margin-top:40px;
+}
+
+.timeline div{
+padding:20px;
+border-left:3px solid #c79b63;
+margin-bottom:25px;
+background:white;
+border-radius:10px;
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* POLAROID MEMORY WALL */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.polaroid{
+background:white;
+padding:12px 12px 40px 12px;
+border-radius:6px;
+box-shadow:0 15px 30px rgba(0,0,0,0.15);
+transform:rotate(-2deg);
+transition:0.4s;
+}
+
+.polaroid img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:4px;
+}
+
+.polaroid:hover{
+transform:rotate(0deg) scale(1.05);
+}
+
+/* SLIDESHOW */
+
+.slideshow{
+max-width:800px;
+margin:60px auto;
+}
+
+.slideshow img{
+width:100%;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* LOVE LETTER */
+
+.letter-section{
+background:linear-gradient(180deg,#fff5f7,#ffffff);
+padding:80px 20px;
+}
+
+.love-letter{
+max-width:700px;
+margin:auto;
+font-size:18px;
+line-height:1.9;
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* SECRET MESSAGE */
+
+.secret{
+display:none;
+margin-top:30px;
+font-size:20px;
+color:#c79b63;
+}
+
+/* HEARTS */
+
+.heart{
+position:fixed;
+top:-10px;
+color:#ff6b81;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);} 
+100%{transform:translateY(110vh);} 
+}
+
+footer{
+padding:40px;
+background:#fafafa;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+<h1>Our 4 Year Love Story</h1>
+
+<div class="names">Ronald ❤️ Deepika</div>
+
+<div>March 9, 2026</div>
+
+<div class="countdown" id="countdown"></div>
+
+<button onclick="document.getElementById('journey').scrollIntoView({behavior:'smooth'})">
+Our Journey ↓
+</button>
+
+</section>
+
+<div class="quote">
+"Some love stories are written in the stars. Ours is written in every moment we’ve shared."
+</div>
+
+<section class="section" id="journey">
+
+<h2>Our Journey</h2>
+
+<div class="timeline">
+
+<div>
+<b>The Beginning</b><br>
+The moment our paths crossed quietly changed my life. What started as simple conversations slowly became the most meaningful connection I have ever had.
+</div>
+
+<div>
+<b>Getting Closer</b><br>
+Day by day, message by message, we grew closer. You became the person I wanted to share everything with — my thoughts, my happiness, and even my worries.
+</div>
+
+<div>
+<b>Our Memories</b><br>
+Every laugh, every long conversation, every moment we spent together slowly built something beautiful between us.
+</div>
+
+<div>
+<b>Growing Together</b><br>
+Over these years we didn’t just create memories — we grew together, supported each other, and became stronger as partners.
+</div>
+
+<div>
+<b>4 Beautiful Years</b><br>
+Today we celebrate four wonderful years of love, memories, and companionship. And I know our best moments are still ahead of us.
+</div>
+
+</div>
+
+</section>
+
+<div class="quote">
+"Every memory with you is my favorite memory."
+</div>
+
+<section class="section">
+
+<h2>Our Memories</h2>
+
+<div class="gallery">
+
+<div class="polaroid"><img src="photo1.jpg"></div>
+<div class="polaroid"><img src="photo2.jpg"></div>
+<div class="polaroid"><img src="photo3.jpg"></div>
+<div class="polaroid"><img src="photo4.jpg"></div>
+<div class="polaroid"><img src="photo5.jpg"></div>
+<div class="polaroid"><img src="photo6.jpg"></div>
+<div class="polaroid"><img src="photo7.jpg"></div>
+<div class="polaroid"><img src="photo8.jpg"></div>
+<div class="polaroid"><img src="photo9.jpg"></div>
+<div class="polaroid"><img src="photo10.jpg"></div>
+
+</div>
+
+</section>
+
+<div class="quote">
+"If I had to choose again, I would still choose you — every single time."
+</div>
+
+<section class="slideshow">
+
+<img id="slide" src="photo1.jpg">
+
+</section>
+
+<section class="letter-section">
+
+<h2>My Letter To You</h2>
+
+<div class="love-letter">
+
+Deepika,
+
+<br><br>
+
+If someone had told me years ago that one person could bring so much happiness and peace into my life, I probably wouldn’t have believed them. But then you came into my life, and everything slowly began to change.
+
+<br><br>
+
+These four years have been filled with moments that I will carry with me forever — the laughter we shared, the conversations that lasted for hours, and the comfort of simply knowing that you are there.
+
+<br><br>
+
+You have this incredible ability to make my world brighter just by being yourself. Your smile, your kindness, and the way you care about the people around you are just a few of the many reasons why I admire you so much.
+
+<br><br>
+
+I am grateful for every moment we have shared and excited for every memory we will create in the future.
+
+<br><br>
+
+Happy 4th Anniversary, my love.
+
+<br><br>
+
+— Ronald
+
+<button onclick="showSecret()">Open When You Miss Me 💌</button>
+
+<div class="secret" id="secret">
+No matter where you are or how far apart we may be, my heart will always find its way back to you. ❤️
+</div>
+
+</div>
+
+</section>
+
+<footer>
+Made with ❤️ by Ronald for Deepika
+</footer>
+
+<script>
+
+window.addEventListener("load", function () {
+  const music = document.getElementById("bgMusic");
+
+  const startMusic = () => {
+    music.play().catch(() => {});
+    document.removeEventListener("click", startMusic);
+  };
+
+  document.addEventListener("click", startMusic);
+});
+
+const targetDate = new Date("March 9, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+const el=document.getElementById("countdown");
+
+if(distance>0){
+ el.innerHTML = days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
+}else{
+ el.innerHTML = "Happy 4th Anniversary ❤️";
+}
+
+},1000);
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},6000);
+}
+
+setInterval(createHeart,500);
+
+/* STARS */
+
+for(let i=0;i<120;i++){
+const star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+document.getElementById("stars").appendChild(star);
+}
+
+/* SLIDESHOW */
+
+const images=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg","photo8.jpg","photo9.jpg","photo10.jpg"];
+let i=0;
+setInterval(()=>{
+i=(i+1)%images.length;
+document.getElementById("slide").src=images[i];
+},3000);
+
+function showSecret(){
+document.getElementById("secret").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
