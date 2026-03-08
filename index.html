@@ -107,8 +107,40 @@ color:#555;
 }
 
 .timeline{
-text-align:left;
-margin-top:40px;
+position:relative;
+max-width:700px;
+margin:60px auto;
+padding-left:40px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:15px;
+top:0;
+bottom:0;
+width:3px;
+background:#c79b63;
+}
+
+.timeline-item{
+position:relative;
+margin-bottom:35px;
+background:white;
+padding:18px 20px;
+border-radius:10px;
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+left:-29px;
+top:18px;
+width:14px;
+height:14px;
+border-radius:50%;
+background:#c79b63;
 }
 
 .timeline div{
@@ -250,30 +282,41 @@ Our Journey ↓
 
 <div class="timeline">
 
-<div>
-<b>The Beginning</b><br>
-The moment our paths crossed quietly changed my life.
-</div>
+<div class="timeline-item"><b>Feb 24, 2022 — Saw You 👀</b><br>The day I first noticed you and our story quietly began.</div>
 
-<div>
-<b>Getting Closer</b><br>
-Day by day, we grew closer and our bond became stronger.
-</div>
+<div class="timeline-item"><b>Feb 25, 2022 — First Talk 💬</b><br>The first real conversation that started everything.</div>
 
-<div>
-<b>Our Memories</b><br>
-Every laugh and conversation slowly built something beautiful.
-</div>
+<div class="timeline-item"><b>Feb 25, 2022 — First Text 📱</b><br>Messages that slowly became a daily habit.</div>
 
-<div>
-<b>Growing Together</b><br>
-We supported each other and grew stronger together.
-</div>
+<div class="timeline-item"><b>March 4, 2022 — First Call 📞</b><br>Hearing your voice made everything feel more real.</div>
 
-<div>
-<b>4 Beautiful Years</b><br>
-Today we celebrate four wonderful years of love.
-</div>
+<div class="timeline-item"><b>March 5, 2022 — Proposed 💍</b><br>The day I asked you to be mine.</div>
+
+<div class="timeline-item"><b>March 9, 2022 — You Said Yes ❤️</b><br>The moment our relationship officially began.</div>
+
+<div class="timeline-item"><b>March 9, 2022 — Held Hands 🤝</b><br>A small moment that meant everything.</div>
+
+<div class="timeline-item"><b>March 11, 2022 — First Picture 📸</b><br>A memory frozen forever.</div>
+
+<div class="timeline-item"><b>March 11, 2022 — First Kiss 💋</b><br>A moment we will never forget.</div>
+
+<div class="timeline-item"><b>March 15, 2022 — Home Visit 🏠</b><br>A step closer into each other's lives.</div>
+
+<div class="timeline-item"><b>March 16, 2022 — First Gift 🎁</b><br>The watch that still reminds me of you.</div>
+
+<div class="timeline-item"><b>April 2, 2022 — First Date 🍔</b><br>Burger King at Mantri Mall — simple but unforgettable.</div>
+
+<div class="timeline-item"><b>April 8, 2022 — Breakup 💔</b><br>A difficult day that tested our love.</div>
+
+<div class="timeline-item"><b>April 24, 2022 — Party Night 🎉</b><br>Another memory added to our story.</div>
+
+<div class="timeline-item"><b>May 6, 2022 — Patch Up 🤍</b><br>Proof that love is stronger than misunderstandings.</div>
+
+<div class="timeline-item"><b>May 28, 2022 — Movie Together 🎬</b><br>Another simple moment turned special.</div>
+
+<div class="timeline-item"><b>July 30, 2022 — Temple Visit 🛕</b><br>Praying for our journey together.</div>
+
+<div class="timeline-item"><b>Oct 25, 2022 — Church Visit ⛪</b><br>Another blessing for our love.</div>
 
 </div>
 
